@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc  // enables all the Spring MVC configuration , put it befir the Front Controller /DS config class
 @SuppressWarnings("deprecation")
 @Configuration
-@ComponentScan("com.love.controllers")
+@ComponentScan("com.love")
 public class DSConfigClass extends WebMvcConfigurerAdapter {
 	
 	//view Resolver

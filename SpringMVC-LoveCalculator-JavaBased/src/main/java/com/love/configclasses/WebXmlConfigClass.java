@@ -1,5 +1,4 @@
 package com.love.configclasses;
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebXmlConfigClass extends  AbstractAnnotationConfigDispatcherServletInitializer{
