@@ -1,0 +1,57 @@
+Java Based Configuration is the latest ways of configuring MVC:
+In this course we will eliminate all the xml configurations and transform it to pure Java based configuration.
+
+
+Overview of Xml way of Configuration of MVC application:
+It is important to under the xml way of configuration as well, because most of the projects are configured in legacy way.
+-we enter the DS/FC url in the browser address bar followed by a /… url pattern which our Controller / handler method RequestMapping url pattern
+-inside the web.xml create a <servlet> of DispatcherServlet class.
+	-<init-param> inside the <servlet> used to determined the location of our Spring Config file.xml
+	- <loadon-startup>1</> when the project is deployed to Tomcat the object for DS will be created inside the servlet container. Servlet container is inside the our Web Server (tomcat). Its job is to initialize the servlets
+Once we deploy our project to Tomcat. Tomcat automatically detects and reads the web.xml file and initialize the DS. 
+If we don’t mention the <load-on-startup> then the DS object will be created when the first request comes to the DS/FC url
+	-we will have 2 xml file, web.xml and Spring config file
+-Note: we set our DS/FC inside the web.xml
+-once the DS is initialized it will look for the configuration file. Where we will have our canning tag, beans creations,  beans for view resolver, data source …etc (DS object needs this file to get initialized )
+When the DS object found the configuration file it will make WebApplicationContext out of it
+-we need to write 2 equivalent Java classes for the web.xml and the Spring Configuration file.
+-we gana implement the same concept in Java based configuration 
+
+
+
+
+
+
+
+Java Based Configuration way: (delete the web.xml and SpringConfig.xml)
+-	Create a configuration class instead of web.xml and configure the DS inside it, this class will automatically be detected and read by Tomcat at the time of deployment.
+-	Create another class instead of the Spring config file.
+
+
+
+Spring MVC Java Based Configuration:
+Step1: Project Setup:
+File > new > maven project > maven-archetype-webapp 
+>Group id :com.ourCompanyName : this is the package name
+>Artifact id>  app name / project name
+
+
+To solve the error in index.jsp :
+-	Wc on project > pros > targeted runtime > tick  the tomcat server
+
+-	Past the spring webmvc maven dependency inside the <dependencies> of porm.xml to the jar files to our project.
+
+https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.2.6.RELEASE</version>
+</dependency>
+To check the jar files came to our project form that dependency link we pasted 
+Java Resources > Libraries > Maven Dependencies
+
+-	Create a folder for you java codes in project work space 
+Wc on project > show in > system explorer > src > main > create a folder here (Java), where we can put our java files
+Create a class that implement WebApplicationInitializer in this folder as replacement for web.xml file  // this class will be auto detected by tomcat
