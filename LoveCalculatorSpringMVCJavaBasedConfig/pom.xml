@@ -56,11 +56,22 @@
 		</dependency>
 
 
+
+		<!-- this is only the JSR/Specification we need to include the implementation 
+			dependency as well -->
 		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>2.0.1.Final</version>
+		</dependency>
+
+		<!-- includeing the hibernate validation JSR implementation -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.5.Final</version>
 		</dependency>
 
 
