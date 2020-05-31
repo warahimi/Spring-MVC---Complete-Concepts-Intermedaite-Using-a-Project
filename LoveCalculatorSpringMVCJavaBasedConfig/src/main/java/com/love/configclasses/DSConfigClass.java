@@ -3,9 +3,12 @@ package com.love.configclasses;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.love.Formatters.PhoneNumberFormatter;
 
 @Configuration
 @EnableWebMvc
@@ -19,6 +22,15 @@ public class DSConfigClass implements WebMvcConfigurer{
 		vr.setPrefix("/WEB-INF/views/");
 		vr.setSuffix(".jsp");
 		return vr;
+	}
+	
+	
+	//to register our formatter with our config class, when Spring MVC reads the config class, it will see the formatter
+	//and help with data binding
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		System.out.println("inside addFormatter method of Config class.....");
+		registry.addFormatter(new PhoneNumberFormatter());
 	}
 	
 

@@ -8,6 +8,8 @@ public class UserRegistrationDTO {
 	private String[] hobby; //since hobby is check box we store them in array of string
 	private String gender;
 	
+	private CommunicationDTO communicationDTO;
+	
 	//Getters and Setters
 	public String getName() {
 		return name;
@@ -41,6 +43,14 @@ public class UserRegistrationDTO {
 	}
 	public String getGender() {
 		return gender;
+	}
+	
+	
+	public CommunicationDTO getCommunicationDTO() {
+		return communicationDTO;
+	}
+	public void setCommunicationDTO(CommunicationDTO communicationDTO) {
+		this.communicationDTO = communicationDTO;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;

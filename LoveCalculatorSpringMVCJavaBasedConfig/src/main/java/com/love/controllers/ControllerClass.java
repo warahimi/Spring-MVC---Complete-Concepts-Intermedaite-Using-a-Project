@@ -45,7 +45,6 @@ public class ControllerClass {
 	@RequestMapping("/register")
 	public String showRegisterationPage(@ModelAttribute("dto") UserRegistrationDTO dto)
 	{
-		
 		return "user-registeration-page";
 	}
 	

@@ -42,6 +42,8 @@
 			<form:errors path="termAndCondition" cssClass="error"/>
 			<br><br>
 			
+			
+			
 			<input type="submit" value="Calculate" >
 		</div>
 	</form:form>

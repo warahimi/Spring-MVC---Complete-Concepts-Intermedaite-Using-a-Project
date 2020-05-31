@@ -24,7 +24,8 @@
 	
 
 	<br> Gender: ${UserRegDTO.gender}
-	<br>
-
+	<br>Email: ${UserRegDTO.communicationDTO.email }
+	<br>Phone: ${UserRegDTO.communicationDTO.phone }
+	
 </body>
 </html>
