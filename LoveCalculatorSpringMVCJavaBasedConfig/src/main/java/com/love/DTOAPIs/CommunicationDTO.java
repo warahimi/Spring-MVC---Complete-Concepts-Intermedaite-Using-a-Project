@@ -4,11 +4,14 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.love.Validators.PhoneNumber;
+
 public class CommunicationDTO {
 	@NotBlank(message = "email cannot be blank")
 	private String email;
 	
-	@NotNull(message = "Phone Number cannot be blank")
+//	@NotNull(message = "Phone Number cannot be blank")
+	@PhoneNumber()
 	private PhoneDTO phone;  
 	
 	

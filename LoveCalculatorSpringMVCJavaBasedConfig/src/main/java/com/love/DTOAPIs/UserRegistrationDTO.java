@@ -2,9 +2,11 @@ package com.love.DTOAPIs;
 
 import javax.validation.Valid;
 
+
 import javax.validation.constraints.NotBlank;
 
 import com.love.Validators.Age;
+
 
 public class UserRegistrationDTO {
 	@NotBlank(message = "* Name cannot be blank")
