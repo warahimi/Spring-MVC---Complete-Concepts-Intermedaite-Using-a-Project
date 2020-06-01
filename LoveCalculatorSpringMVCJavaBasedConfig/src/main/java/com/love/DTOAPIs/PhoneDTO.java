@@ -1,9 +1,12 @@
 package com.love.DTOAPIs;
 
-public class PhoneDTO {
+import javax.validation.constraints.NotBlank;
 
-	private String countryCode;
+public class PhoneDTO {
+	private String countryCode;	
 	private String phoneNumber;
+	
+	
 	
 	public PhoneDTO() {
 	}

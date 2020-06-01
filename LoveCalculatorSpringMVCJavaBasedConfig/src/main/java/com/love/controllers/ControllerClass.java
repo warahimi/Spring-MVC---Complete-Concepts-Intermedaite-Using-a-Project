@@ -43,15 +43,26 @@ public class ControllerClass {
 	
 	
 	@RequestMapping("/register")
-	public String showRegisterationPage(@ModelAttribute("dto") UserRegistrationDTO dto)
+	public String showRegisterationPage(@ModelAttribute("UserRegDTO") UserRegistrationDTO dto)
 	{
 		return "user-registeration-page";
 	}
 	
 	
 	@RequestMapping("/sucess-registeration")
-	public String showRegistrationResultData(@ModelAttribute("UserRegDTO") UserRegistrationDTO UserRegDTO)
+	public String showRegistrationResultData(@Valid @ModelAttribute("UserRegDTO") UserRegistrationDTO UserRegDTO, BindingResult result)
 	{
+		if(result.hasErrors())
+		{
+			//to print the error for tracking purposes
+			List<ObjectError> allErrors = result.getAllErrors();
+			for(ObjectError er : allErrors)
+			{
+				System.out.println(er);
+			}
+			
+			return "user-registeration-page";
+		}
 		return "registeration-data-page";
 	}
 }

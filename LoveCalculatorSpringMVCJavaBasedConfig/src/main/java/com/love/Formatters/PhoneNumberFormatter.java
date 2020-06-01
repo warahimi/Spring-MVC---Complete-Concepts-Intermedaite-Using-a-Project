@@ -21,12 +21,46 @@ public class PhoneNumberFormatter implements Formatter<PhoneDTO>{//<> inside we 
 		//locale is used for localization and internationalization, if we want to show our data in other languages of specific geographical area		
 		//logic to convert the String to Phone object // the phone number the user enterts come inside text object 
 		
+		
+		PhoneDTO phone = new PhoneDTO();
 		//Splite the text /phone number
+
+		
 		String[] splitedPhoneNumber = text.split("-");
-		PhoneDTO phone = new PhoneDTO(); 
+
+		//Removing the bugs (first check if the phone number has a '-')
+		
+		
+		
+		int indexOf = text.indexOf("-");
+		if(indexOf == -1 || indexOf == 0 )
+		{
+			//if '-' not found add 91 as default country code
+			phone.setCountryCode("91");
+			if(indexOf==0)
+			{
+			phone.setPhoneNumber(splitedPhoneNumber[1]);
+			}
+			else
+			{
+				phone.setPhoneNumber(splitedPhoneNumber[0]);
+			}
+			
+		}
+		else
+		{
+		
+			if(text.endsWith("-"))
+			{
+				phone.setCountryCode(splitedPhoneNumber[0]);
+				phone.setPhoneNumber("00000000000");
+				return phone;
+				
+			}
+		
 		phone.setCountryCode(splitedPhoneNumber[0]);
 		phone.setPhoneNumber(splitedPhoneNumber[1]);
-		
+		}
 		return phone;
 	} 
 

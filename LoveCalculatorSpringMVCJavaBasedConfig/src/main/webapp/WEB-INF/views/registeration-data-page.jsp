@@ -26,6 +26,7 @@
 	<br> Gender: ${UserRegDTO.gender}
 	<br>Email: ${UserRegDTO.communicationDTO.email }
 	<br>Phone: ${UserRegDTO.communicationDTO.phone }
+	<br> User Name: ${UserRegDTO.age}
 	
 </body>
 </html>

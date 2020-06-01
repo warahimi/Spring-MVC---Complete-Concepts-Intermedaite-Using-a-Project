@@ -29,7 +29,6 @@ public class DSConfigClass implements WebMvcConfigurer{
 	//and help with data binding
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
-		System.out.println("inside addFormatter method of Config class.....");
 		registry.addFormatter(new PhoneNumberFormatter());
 	}
 	

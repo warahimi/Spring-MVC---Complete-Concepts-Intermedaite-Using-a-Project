@@ -1,13 +1,28 @@
 package com.love.DTOAPIs;
 
+import javax.validation.Valid;
+
+import javax.validation.constraints.NotBlank;
+
+import com.love.Validators.Age;
+
 public class UserRegistrationDTO {
+	@NotBlank(message = "* Name cannot be blank")
 	private String name;
-	private String userName;
-	private char[] password; // the best practice is to store passowri in char array
+	private String userName;	
+	private char[] password; 									// the best practice is to store passowri in char array
 	private String country;
-	private String[] hobby; //since hobby is check box we store them in array of string
+	private String[] hobby; 									//since hobby is check box we store them in array of string
 	private String gender;
 	
+	//Definig custom validation for age
+	@Age(lower = 18, upper=60, message = "Age must be between 18 and 60")
+	private Integer age; //age must of object type Integer not (int) for Custom validation to work with it
+	
+	//now we can give this custome annotation develop by us to our team member and whover need to validate age they can used instead of using Bean Validation annotations
+	
+	
+	@Valid
 	private CommunicationDTO communicationDTO;
 	
 	//Getters and Setters
@@ -55,4 +70,12 @@ public class UserRegistrationDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	
 }
